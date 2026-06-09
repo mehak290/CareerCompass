@@ -1,27 +1,23 @@
 package careercompass.service;
 
+import careercompass.model.Roadmap;
+import careercompass.repository.RoadmapRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import java.util.List;
 
 @Service
-public class RoadmapService
-{
+public class RoadmapService {
 
-    public List<String> generateRoadmap(String goal) {
+    @Autowired
+    private RoadmapRepository roadmapRepository;
 
-        if (goal.equalsIgnoreCase("Backend Developer")) {
+    public void saveRoadmap(String goal, String currentSkill) {
 
-            return List.of(
-                    "Learn OOP",
-                    "Learn Collections",
-                    "Learn JDBC",
-                    "Learn Spring Boot",
-                    "Learn MySQL",
-                    "Build Projects",
-                    "Learn Deployement"
-            );
-        }
+        Roadmap roadmap = new Roadmap();
 
-        return List.of("Goal not supported yet");
+        roadmap.setGoal(goal);
+        roadmap.setCurrentSkill(currentSkill);
+
+        roadmapRepository.save(roadmap);
     }
-    }
+}
