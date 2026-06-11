@@ -9,11 +9,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
+import careercompass.service.RoadmapService;
 
 
 @RestController
 @RequestMapping("/roadmap")
 public class RoadmapController {
+
+    @Autowired
+    private RoadmapService roadmapService;
 
     @Autowired
     private RoadmapRepository roadmapRepository;
@@ -51,5 +55,11 @@ public class RoadmapController {
     }
     return null;
     }
+
+    @PostMapping("/generate")
+    public List<String> generateRoadmap(@RequestBody Roadmap roadmap) {
+        return roadmapService.generateRoadmap(roadmap.getGoal());
+    }
+
     }
 
