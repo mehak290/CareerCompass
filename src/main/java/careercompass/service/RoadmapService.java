@@ -1,10 +1,52 @@
 package careercompass.service;
 
+import careercompass.model.Roadmap;
+import careercompass.repository.RoadmapRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 
 @Service
 public class RoadmapService {
+
+    @Autowired
+    private RoadmapRepository roadmapRepository;
+
+    // =========================
+    // CRUD METHODS
+    // =========================
+
+    public Roadmap saveRoadmap(Roadmap roadmap) {
+        return roadmapRepository.save(roadmap);
+    }
+
+    public List<Roadmap> getAllRoadmaps() {
+        return roadmapRepository.findAll();
+    }
+
+    public void deleteRoadmap(Long id) {
+        roadmapRepository.deleteById(id);
+    }
+
+    public Roadmap updateRoadmap(Long id, Roadmap updatedRoadmap) {
+
+        Roadmap roadmap = roadmapRepository.findById(id).orElse(null);
+
+        if (roadmap != null) {
+
+            roadmap.setGoal(updatedRoadmap.getGoal());
+            roadmap.setCurrentSkill(updatedRoadmap.getCurrentSkill());
+
+            return roadmapRepository.save(roadmap);
+        }
+
+        return null;
+    }
+
+    // =========================
+    // ROADMAP GENERATOR
+    // =========================
 
     public List<String> generateRoadmap(String goal) {
 

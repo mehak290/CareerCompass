@@ -1,28 +1,96 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Career Compass</title>
+
     <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
 </head>
+
 <body>
 
-<h1>Career Compass</h1>
+<div class="cloud cloud1"></div>
+<div class="cloud cloud2"></div>
+<div class="cloud cloud3"></div>
 
+<div class="hero">
 
-<select id="goal">
-    <option>Backend Developer</option>
-    <option>Frontend Developer</option>
-    <option>Full Stack Developer</option>
-    <option>Data Analyst</option>
-</select>
-<div id="result"></div>
-<button onclick="generateRoadmap()">
-    Generate Roadmap
-</button>
+    <aside class="sidebar">
 
+        <div class="logo-box">
 
+            <h1>🧭 Career Compass</h1>
+
+            <p>
+                Turn your dream career into a step-by-step journey.
+            </p>
+
+        </div>
+
+        <div class="control-box">
+
+            <label>Select Goal</label>
+
+            <select id="goal">
+
+                <option>Backend Developer</option>
+                <option>Frontend Developer</option>
+                <option>Full Stack Developer</option>
+                <option>Java Developer</option>
+                <option>Data Analyst</option>
+
+            </select>
+
+            <button onclick="generateRoadmap()">
+                Generate Journey
+            </button>
+
+        </div>
+
+        <div class="legend">
+
+            <h3>Journey Guide</h3>
+
+            <div>🚙 Current Position</div>
+            <div>🚏 Learning Stop</div>
+            <div>🏔️ Skill Mountain</div>
+            <div>🏁 Destination</div>
+
+        </div>
+
+    </aside>
+
+    <main class="roadmap-section">
+
+        <div id="roadmap">
+
+            <div class="welcome-screen">
+
+                <h2>🚙 Ready To Start?</h2>
+
+                <p>
+                    Select a career goal and generate your roadmap.
+                </p>
+
+            </div>
+
+        </div>
+
+    </main>
+
+</div>
 
 <script src="script.js"></script>
 
 </body>
+
 </html>
+
