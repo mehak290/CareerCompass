@@ -48,6 +48,13 @@ public class RoadmapController {
         return roadmapService.updateRoadmap(id, updatedRoadmap);
     }
 
+    @PutMapping("/{id}/progress")
+    public Roadmap updateProgress(@PathVariable Long id,
+                                  @RequestBody Roadmap roadmap) {
+
+        return roadmapService.updateProgress(id, roadmap.getCompletedSteps());
+    }
+
     @PostMapping("/generate")
     public List<String> generateRoadmap(@RequestBody Roadmap roadmap) {
         return roadmapService.generateRoadmap(roadmap.getGoal());

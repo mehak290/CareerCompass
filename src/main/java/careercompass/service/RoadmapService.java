@@ -43,6 +43,24 @@ public class RoadmapService {
 
         return null;
     }
+    public Roadmap updateProgress(Long id, int completedSteps) {
+
+        Roadmap roadmap = roadmapRepository.findById(id).orElse(null);
+
+        if (roadmap != null) {
+
+            roadmap.setCompletedSteps(completedSteps);
+
+            int progress = (completedSteps * 100) / roadmap.getTotalSteps();
+
+            roadmap.setProgress(progress);
+
+            return roadmapRepository.save(roadmap);
+        }
+
+        return null;
+    }
+
 
     // =========================
     // ROADMAP GENERATOR
