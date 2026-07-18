@@ -4,93 +4,456 @@
 <head>
 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
     <title>Career Compass</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css\style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-          rel="stylesheet">
 
 </head>
 
 <body>
 
-<div class="cloud cloud1"></div>
-<div class="cloud cloud2"></div>
-<div class="cloud cloud3"></div>
+<div class="background-circle circle1"></div>
+<div class="background-circle circle2"></div>
 
-<div class="hero">
+<!-- ================= NAVBAR ================= -->
 
-    <aside class="sidebar">
+<header class="navbar">
+
+    <div class="logo">
 
         <div class="logo-box">
-
-            <h1>🧭 Career Compass</h1>
-
-            <p>
-                Turn your dream career into a step-by-step journey.
-            </p>
-
+            🧭
         </div>
 
-        <div class="control-box">
+        <span>Career Compass</span>
 
-            <label>Select Goal</label>
+    </div>
 
-            <select id="goal">
+    <nav>
 
-                <option>Backend Developer</option>
-                <option>Frontend Developer</option>
-                <option>Full Stack Developer</option>
-                <option>Java Developer</option>
-                <option>Data Analyst</option>
+        <a href="#">Home</a>
+        <a href="#">Features</a>
+        <a href="#">Roadmaps</a>
+        <a href="#">Contact</a>
 
-            </select>
+    </nav>
 
-            <button onclick="generateRoadmap()">
-                Generate Journey
+    <button class="login-btn">
+        Login
+    </button>
+
+</header>
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+    <div class="hero-left">
+
+        <span class="badge">
+
+            🚀 AI Powered Career Planner
+
+        </span>
+
+        <h1>
+
+            Build Your
+
+            <span>Dream Career</span>
+
+        </h1>
+
+        <p>
+
+            Personalized learning roadmaps,
+            progress tracking,
+            interview preparation,
+            and career guidance —
+            all in one platform.
+
+        </p>
+
+        <div class="hero-buttons">
+
+            <button class="primary">
+
+                Generate Roadmap
+
+            </button>
+
+            <button class="secondary">
+
+                Learn More
+
             </button>
 
         </div>
 
-        <div class="legend">
+    </div>
 
-            <h3>Journey Guide</h3>
+    <div class="hero-right">
 
-            <div>🚙 Current Position</div>
-            <div>🚏 Learning Stop</div>
-            <div>🏔️ Skill Mountain</div>
-            <div>🏁 Destination</div>
+        <img src="images/hero.png">
+
+    </div>
+
+</section>
+
+<!-- ================= FEATURES ================= -->
+
+<section class="features" id="features">
+
+    <div class="section-heading">
+
+        <span>✨ FEATURES</span>
+
+        <h2>
+            Everything You Need To
+            <br>
+            Build Your Career
+        </h2>
+
+        <p>
+            Career Compass provides personalized learning,
+            progress tracking and interview preparation
+            in one modern platform.
+        </p>
+
+    </div>
+
+    <div class="features-grid">
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                🤖
+            </div>
+
+            <h3>AI Roadmaps</h3>
+
+            <p>
+                Generate personalized learning paths based
+                on your dream career.
+            </p>
 
         </div>
 
-    </aside>
+        <div class="feature-card">
 
-    <main class="roadmap-section">
+            <div class="feature-icon">
+                📚
+            </div>
 
-        <div id="roadmap">
+            <h3>Structured Learning</h3>
 
-            <div class="welcome-screen">
+            <p>
+                Learn step-by-step with organized resources
+                and milestones.
+            </p>
 
-                <h2>🚙 Ready To Start?</h2>
+        </div>
 
-                <p>
-                    Select a career goal and generate your roadmap.
-                </p>
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                📈
+            </div>
+
+            <h3>Track Progress</h3>
+
+            <p>
+                Stay motivated by monitoring completed
+                lessons and achievements.
+            </p>
+
+        </div>
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                🎯
+            </div>
+
+            <h3>Interview Ready</h3>
+
+            <p>
+                Prepare for coding interviews with
+                practice questions and guidance.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= PROGRESS ================= -->
+
+<section class="progress" id="progress">
+
+    <div class="progress-left">
+
+        <span class="badge">
+            📈 Progress Tracking
+        </span>
+
+        <h2>
+            Stay Motivated <br>
+            Every Day
+        </h2>
+
+        <p>
+            Monitor your completed lessons, weekly goals,
+            achievements, and overall learning progress in one
+            beautiful dashboard.
+        </p>
+
+        <button class="primary">
+            View Dashboard
+        </button>
+
+    </div>
+
+    <div class="progress-right">
+
+        <div class="progress-card">
+
+            <h3>Your Learning</h3>
+
+            <div class="skill">
+
+                <span>Java</span>
+                <span>80%</span>
+
+            </div>
+
+            <div class="bar">
+                <div class="fill java"></div>
+            </div>
+
+            <div class="skill">
+
+                <span>DSA</span>
+                <span>65%</span>
+
+            </div>
+
+            <div class="bar">
+                <div class="fill dsa"></div>
+            </div>
+
+            <div class="skill">
+
+                <span>DBMS</span>
+                <span>90%</span>
+
+            </div>
+
+            <div class="bar">
+                <div class="fill dbms"></div>
+            </div>
+
+            <div class="skill">
+
+                <span>Computer Networks</span>
+                <span>40%</span>
+
+            </div>
+
+            <div class="bar">
+                <div class="fill cn"></div>
+            </div>
+
+            <div class="stats">
+
+                <div>
+                    <h4>124</h4>
+                    <span>Lessons</span>
+                </div>
+
+                <div>
+                    <h4>18</h4>
+                    <span>Projects</span>
+                </div>
+
+                <div>
+                    <h4>87%</h4>
+                    <span>Completed</span>
+                </div>
 
             </div>
 
         </div>
 
-    </main>
+    </div>
 
-</div>
+</section>
+
+<!-- ================= TESTIMONIALS ================= -->
+
+<section class="testimonials" id="testimonials">
+
+    <div class="section-heading">
+
+        <span>💜 TESTIMONIALS</span>
+
+        <h2>
+            Loved By Students
+        </h2>
+
+        <p>
+            Thousands of learners trust Career Compass to
+            plan their careers and stay consistent.
+        </p>
+
+    </div>
+
+    <div class="testimonial-grid">
+
+        <div class="testimonial-card">
+
+            <img src="https://i.pravatar.cc/100?img=12">
+
+            <h3>Priya Sharma</h3>
+
+            <span>Frontend Developer</span>
+
+            <div class="stars">★★★★★</div>
+
+            <p>
+                Career Compass helped me create a structured
+                roadmap and finally stay consistent with my
+                learning.
+            </p>
+
+        </div>
+
+        <div class="testimonial-card">
+
+            <img src="https://i.pravatar.cc/100?img=32">
+
+            <h3>Rahul Verma</h3>
+
+            <span>Java Developer</span>
+
+            <div class="stars">★★★★★</div>
+
+            <p>
+                The AI roadmap is amazing. It saved me weeks
+                of planning and helped me prepare for
+                placements.
+            </p>
+
+        </div>
+
+        <div class="testimonial-card">
+
+            <img src="https://i.pravatar.cc/100?img=15">
+
+            <h3>Ananya Gupta</h3>
+
+            <span>Software Engineer</span>
+
+            <div class="stars">★★★★★</div>
+
+            <p>
+                The progress tracking keeps me motivated every
+                day. I highly recommend this platform.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="cta">
+
+    <div class="cta-box">
+
+        <h2>Ready To Build Your Dream Career?</h2>
+
+        <p>
+            Join thousands of students using Career Compass
+            to learn smarter and get placement ready.
+        </p>
+
+        <button class="primary">
+            Get Started Free
+        </button>
+
+    </div>
+
+</section>
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <div class="footer-logo">
+
+            <h2>Career Compass</h2>
+
+            <p>
+                Your AI-powered learning companion for
+                placements, career growth and interview success.
+            </p>
+
+        </div>
+
+        <div class="footer-links">
+
+            <h3>Quick Links</h3>
+
+            <a href="#">Home</a>
+            <a href="#features">Features</a>
+            <a href="#">Roadmaps</a>
+            <a href="#">Testimonials</a>
+
+        </div>
+
+        <div class="footer-links">
+
+            <h3>Resources</h3>
+
+            <a href="#">Blog</a>
+            <a href="#">FAQs</a>
+            <a href="#">Support</a>
+            <a href="#">Privacy Policy</a>
+
+        </div>
+
+        <div class="footer-links">
+
+            <h3>Contact</h3>
+
+            <p>📧 support@careercompass.com</p>
+
+            <p>📍 India</p>
+
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+
+        © 2026 Career Compass. All Rights Reserved.
+
+    </div>
+
+</footer>
+
 
 <script src="script.js"></script>
 
 </body>
 
 </html>
-
