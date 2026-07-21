@@ -1,189 +1,123 @@
 // ==========================
-// Career Compass Script
+// NAVBAR & SECTIONS
 // ==========================
 
-const careerSelect = document.getElementById("career");
-const generateBtn = document.getElementById("generateBtn");
-
-const totalSteps = document.getElementById("totalSteps");
-const completedSteps = document.getElementById("completedSteps");
-const remainingSteps = document.getElementById("remainingSteps");
-
-const progressText = document.getElementById("progressPercent");
-const progressBar = document.getElementById("progressBar");
-
-const levelText = document.getElementById("currentLevel");
-
-const downloadBtn = document.getElementById("downloadBtn");
-const darkBtn = document.getElementById("darkModeBtn");
+const navbar = document.querySelector(".navbar");
+const navLinks = document.querySelectorAll("nav a");
+const sections = document.querySelectorAll("section");
 
 // ==========================
-// Career Data
+// SMOOTH SCROLL
 // ==========================
 
-const roadmap = {
-    "Frontend Developer": 20,
-    "Backend Developer": 22,
-    "Full Stack Developer": 35,
-    "Java Developer": 25,
-    "Python Developer": 24,
-    "Data Analyst": 26,
-    "Data Scientist": 32,
-    "Machine Learning": 36
-};
+navLinks.forEach(link => {
 
-let completed = 0;
+    link.addEventListener("click", function(e){
 
-// ==========================
-// Generate Journey
-// ==========================
+        e.preventDefault();
 
-generateBtn.addEventListener("click", () => {
+        const target = document.querySelector(this.getAttribute("href"));
 
-    const career = careerSelect.value;
+        if(target){
 
-    const steps = roadmap[career] || 20;
+            target.scrollIntoView({
+                behavior: "smooth"
+            });
 
-    totalSteps.innerText = steps;
-    completed = 0;
+        }
 
-    completedSteps.innerText = completed;
-    remainingSteps.innerText = steps;
-
-    progressText.innerText = "0%";
-    progressBar.style.width = "0%";
-
-    levelText.innerHTML = "🌱 Beginner";
-
-    alert(`${career} Roadmap Generated Successfully!`);
-});
-
-// ==========================
-// Complete One Step
-// (Call completeStep() whenever user finishes a lesson)
-// ==========================
-
-function completeStep() {
-
-    const total = Number(totalSteps.innerText);
-
-    if (completed >= total) return;
-
-    completed++;
-
-    completedSteps.innerText = completed;
-
-    remainingSteps.innerText = total - completed;
-
-    const percent = Math.round((completed / total) * 100);
-
-    progressText.innerText = percent + "%";
-
-    progressBar.style.width = percent + "%";
-
-    // Change Level
-    if (percent < 30) {
-        levelText.innerHTML = "🌱 Beginner";
-    }
-    else if (percent < 60) {
-        levelText.innerHTML = "📘 Intermediate";
-    }
-    else if (percent < 90) {
-        levelText.innerHTML = "🚀 Advanced";
-    }
-    else {
-        levelText.innerHTML = "🏆 Job Ready";
-    }
-
-}
-
-// ==========================
-// Download Button
-// ==========================
-
-downloadBtn.addEventListener("click", () => {
-
-    const career = careerSelect.value;
-
-    const data = `
-Career : ${career}
-
-Total Steps : ${totalSteps.innerText}
-
-Completed : ${completedSteps.innerText}
-
-Remaining : ${remainingSteps.innerText}
-
-Progress : ${progressText.innerText}
-
-Level : ${levelText.innerText}
-`;
-
-    const blob = new Blob([data], {
-        type: "text/plain"
     });
 
-    const link = document.createElement("a");
-
-    link.href = URL.createObjectURL(blob);
-
-    link.download = `${career}-Roadmap.txt`;
-
-    link.click();
-
 });
 
 // ==========================
-// Dark Mode
+// STICKY NAVBAR + ACTIVE LINK
 // ==========================
 
-darkBtn.addEventListener("click", () => {
+window.addEventListener("scroll", () => {
 
-    document.body.classList.toggle("dark");
+    // Sticky Navbar
+    if(window.scrollY > 50){
 
-    if (document.body.classList.contains("dark")) {
-        darkBtn.innerHTML = "☀️ Light Mode";
-    } else {
-        darkBtn.innerHTML = "🌙 Dark Mode";
+        navbar.classList.add("sticky");
+
+    }else{
+
+        navbar.classList.remove("sticky");
+
     }
 
+    // Active Navigation
+    let current = "";
+
+    sections.forEach(section => {
+
+        const sectionTop = section.offsetTop - 150;
+        const sectionHeight = section.offsetHeight;
+
+        if(
+            window.scrollY >= sectionTop &&
+            window.scrollY < sectionTop + sectionHeight
+        ){
+
+            current = section.id;
+
+        }
+
+    });
+
+    navLinks.forEach(link => {
+
+        link.classList.remove("active");
+
+        if(link.getAttribute("href") === "#" + current){
+
+            link.classList.add("active");
+
+        }
+
+    });
+
 });
 
 // ==========================
-// Smooth Animation
+// ROADMAP BUTTON
 // ==========================
 
-window.addEventListener("load", () => {
+const roadmapBtn = document.querySelector(".primary");
 
-    document.body.style.opacity = "0";
+if(roadmapBtn){
 
-    setTimeout(() => {
-        document.body.style.transition = "opacity .8s";
-        document.body.style.opacity = "1";
-    }, 100);
+    roadmapBtn.addEventListener("click", () => {
 
-});
+        alert("🚀 Roadmap Generator Coming Soon!");
 
-// ==========================
-// Floating Hero Animation
-// ==========================
-
-const hero = document.querySelector(".hero-pin");
-
-if(hero){
-
-let pos = 0;
-let direction = 1;
-
-setInterval(() => {
-
-    pos += direction;
-
-    hero.style.transform = `translateY(${pos}px)`;
-
-    if (pos > 12 || pos < -12)
-        direction *= -1;
-
-}, 50);
+    });
 
 }
+
+// ==========================
+// REVEAL ANIMATION
+// ==========================
+
+const reveals = document.querySelectorAll(".reveal");
+
+function revealOnScroll(){
+
+    reveals.forEach(item => {
+
+        const top = item.getBoundingClientRect().top;
+
+        if(top < window.innerHeight - 120){
+
+            item.classList.add("active");
+
+        }
+
+    });
+
+}
+
+window.addEventListener("scroll", revealOnScroll);
+
+revealOnScroll();
