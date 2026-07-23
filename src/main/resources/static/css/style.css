@@ -220,7 +220,7 @@ nav a:hover{
 
 .login-btn{
 
-    padding:13px 30px;
+    padding:15px 40px;
 
     border:none;
 
@@ -316,6 +316,10 @@ nav a:hover{
     background:linear-gradient(90deg,#6C63FF,#4F8CFF);
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
+}
+
+.hero img{
+width:540px;
 }
 
 @keyframes float{
@@ -1126,4 +1130,10 @@ linear-gradient(
 
     transform:translateY(0);
 
+}
+
+/*cta button*/
+
+.btn:hover{
+    transform:translateY(-2px);
 }

@@ -43,6 +43,7 @@ public class RoadmapService {
 
         return null;
     }
+
     public Roadmap updateProgress(Long id, int completedSteps) {
 
         Roadmap roadmap = roadmapRepository.findById(id).orElse(null);
@@ -68,7 +69,7 @@ public class RoadmapService {
 
     public List<String> generateRoadmap(String goal) {
 
-        if (goal.equalsIgnoreCase("Backend Developer")) {
+        if (goal.toLowerCase().contains("backend")) {
             return List.of(
                     "Learn Java",
                     "Learn OOP",
@@ -81,7 +82,7 @@ public class RoadmapService {
             );
         }
 
-        if (goal.equalsIgnoreCase("Frontend Developer")) {
+        if (goal.toLowerCase().contains("frontend")) {
             return List.of(
                     "Learn HTML",
                     "Learn CSS",
@@ -94,7 +95,7 @@ public class RoadmapService {
             );
         }
 
-        if (goal.equalsIgnoreCase("Full Stack Developer")) {
+        if (goal.toLowerCase().contains("full")) {
             return List.of(
                     "Learn HTML/CSS/JS",
                     "Learn React",
@@ -107,19 +108,42 @@ public class RoadmapService {
             );
         }
 
-        if (goal.equalsIgnoreCase("Data Analyst")) {
-            return List.of(
-                    "Learn Excel",
-                    "Learn SQL",
-                    "Learn Python",
-                    "Learn Pandas",
-                    "Learn Data Visualization",
-                    "Learn Power BI",
-                    "Analyze Datasets",
-                    "Build Portfolio Projects"
-            );
+        if (goal.toLowerCase().contains("java")) {
+            {
+                return List.of(
+                        "Learn Java Basics",
+                        "Master OOP",
+                        "Collections Framework",
+                        "Exception Handling",
+                        "Multithreading",
+                        "JDBC",
+                        "MySQL",
+                        "Spring Boot",
+                        "REST APIs",
+                        "Hibernate/JPA",
+                        "Build Projects",
+                        "Practice DSA",
+                        "Prepare for Interviews"
+                );
+            }}
+
+
+            if (goal.toLowerCase().contains("data")) {
+                return List.of(
+                        "Learn Excel",
+                        "Learn SQL",
+                        "Learn Python",
+                        "Learn Pandas",
+                        "Learn Data Visualization",
+                        "Learn Power BI",
+                        "Analyze Datasets",
+                        "Build Portfolio Projects"
+                );
+            }
+
+
+
+            return List.of("Goal not supported yet");
         }
 
-        return List.of("Goal not supported yet");
     }
-}
