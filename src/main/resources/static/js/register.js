@@ -24,17 +24,16 @@ registerForm.addEventListener("submit", async (e) => {
 
     try{
 
-        const response = await fetch("https://careercompass-production-0a7b.up.railway.app",{
-
-            method:"POST",
-
-            headers:{
-                "Content-Type":"application/json"
-            },
-
-            body:JSON.stringify(user)
-
-        });
+       const response = await fetch(
+    "https://careercompass-production-0a7b.up.railway.app/user/register",
+    {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(user)
+    }
+);
 
         if(response.ok){
 
