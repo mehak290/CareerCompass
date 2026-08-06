@@ -39,14 +39,16 @@ generateBtn.addEventListener("click", async () => {
     try{
 
         const API_URL = "https://careercompass-production-0a7b.up.railway.app";
-
-fetch(`${API_URL}/roadmap/generate`, {
+const response = await fetch(`${API_URL}/roadmap/generate`, {
     method: "POST",
     headers: {
         "Content-Type": "application/json"
     },
-    body: JSON.stringify({ goal })
+    body: JSON.stringify({
+        goal: goal
+    })
 });
+
 
         const roadmap = await response.json();
 
