@@ -1,4 +1,5 @@
 const loginForm = document.getElementById("loginForm");
+const API_URL = "https://careercompass-production-0a7b.up.railway.app";
 
 loginForm.addEventListener("submit", async (e) => {
 
@@ -14,7 +15,7 @@ loginForm.addEventListener("submit", async (e) => {
 
     try {
 
-        const response = await fetch("http://localhost:8080/user/login", {
+        const response = await fetch(`${API_URL}/user/login, {
 
             method: "POST",
 
