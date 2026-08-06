@@ -24,7 +24,7 @@ registerForm.addEventListener("submit", async (e) => {
 
     try{
 
-        const response = await fetch("http://localhost:8080/user/register",{
+        const response = await fetch("https://careercompass-production-0a7b.up.railway.app",{
 
             method:"POST",
 
