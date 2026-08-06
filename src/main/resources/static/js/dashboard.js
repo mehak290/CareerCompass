@@ -1,4 +1,5 @@
 const user = JSON.parse(localStorage.getItem("user"));
+const API_URL = "https://careercompass-production-0a7b.up.railway.app";
 
 if(!user){
 
@@ -37,7 +38,7 @@ generateBtn.addEventListener("click", async () => {
 
     try{
 
-        const response = await fetch("http://localhost:8080/roadmap/generate",{
+        const response = await fetch(`${API_URL}/roadmap/generate`,{
 
             method:"POST",
 
